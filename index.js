@@ -9,6 +9,17 @@ const twit = new Twit({
   strictSSL: true,
 });
 
-await twit.post("statuses/update", { status: `hehee matt smell` });
+const start = new Date("2021-04-30T23:07:57.706Z");
+const date = new Date();
+
+const differenceInTime = date.getTime() - start.getTime();
+const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24)) - 1;
+
+await twit.post("statuses/update", {
+  status: `
+  @porksmith you have been summoned for jury duney #BerryReadsDune
+
+  Days since I started annoying Berry Boi: ${differenceInDays}`,
+});
 
 console.log(`Done annoying Matt Berry 🐛`);
