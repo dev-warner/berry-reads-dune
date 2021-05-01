@@ -2,7 +2,7 @@ name: Run at 9am and 8pm
 
 on:
   schedule:
-    - cron: "0 11 * * *"
+    - cron: "0 20 * * *"
 
 jobs:
   build:
