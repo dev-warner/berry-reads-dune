@@ -1,4 +1,4 @@
-name: Run at 9am and 8pm
+name: Run at 8pm
 
 on:
   schedule:
@@ -6,7 +6,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -14,23 +13,23 @@ jobs:
         node-version: [15.x]
 
     steps:
-       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-       - name: Get npm cache directory
-         id: npm-cache
-         run: |
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
           echo "::set-output name=dir::$(npm config get cache)"
-       - uses: actions/cache@v2
-         with:
-           path: ${{ steps.npm-cache.outputs.dir }}
-           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
 
-       - name: Use Node.js ${{ matrix.node-version }}
-         uses: actions/setup-node@v1
-         with:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
           node-version: ${{ matrix.node-version }}
 
-       - name: npm install, build, and test
-         run: |
+      - name: npm install and run
+        run: |
           npm ci
           npm start
