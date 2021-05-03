@@ -24,6 +24,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: npm install and run
+        env:
+          ACCESS_SECRET: ${{ secrets.ACCESS_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+
         run: |
           npm install
           npm start
