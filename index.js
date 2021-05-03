@@ -9,7 +9,7 @@ const twit = new Twit({
   strictSSL: true,
 });
 
-const start = new Date("2021-04-30T23:07:57.706Z");
+const start = new Date("Mon May 03 2021 15:26:55 GMT+0100 (British Summer Time)");
 const date = new Date();
 
 const differenceInTime = date.getTime() - start.getTime();
