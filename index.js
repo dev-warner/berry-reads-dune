@@ -17,9 +17,8 @@ const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24)) - 1;
 
 await twit.post("statuses/update", {
   status: `
-  @porksmith you have been summoned for jury duney #BerryReadsDune
-
-  Days since I started annoying Berry Boi: ${differenceInDays}`,
+  .@porksmith you have been summoned for jury duney #BerryReadsDune
+  Days walking without rhythm: ${differenceInDays}`,
 });
 
 console.log(`Done annoying Matt Berry 🐛`);
